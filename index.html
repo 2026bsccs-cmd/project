@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshatha | B.Sc Student & Software Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .skill-progress {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900" id="body">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card bg-slate-950/80 dark:bg-slate-950/80 backdrop-blur-md transition-all duration-300 border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <span class="font-mono text-xl font-bold gradient-text">&lt;Akshatha /&gt;</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="text-slate-300 hover:text-sky-400 transition-colors">About</a>
+                    <a href="#skills" class="text-slate-300 hover:text-sky-400 transition-colors">Skills</a>
+                    <a href="#projects" class="text-slate-300 hover:text-sky-400 transition-colors">Projects</a>
+                    <a href="#education" class="text-slate-300 hover:text-sky-400 transition-colors">Education</a>
+                    <a href="#contact" class="text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
+                    
+                    <!-- Theme Toggle Button -->
+                    <button id="themeToggle" onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-300" aria-label="Toggle Dark/Light Mode">
+                        <i id="themeIcon" class="fas font-solid fa-moon text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="themeToggleMobile" onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-300">
+                        <i id="themeIconMobile" class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuBtn" onclick="toggleMenu()" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMenu()" class="block text-slate-300 hover:text-sky-400 py-1 font-medium">About</a>
+            <a href="#skills" onclick="toggleMenu()" class="block text-slate-300 hover:text-sky-400 py-1 font-medium">Skills</a>
+            <a href="#projects" onclick="toggleMenu()" class="block text-slate-300 hover:text-sky-400 py-1 font-medium">Projects</a>
+            <a href="#education" onclick="toggleMenu()" class="block text-slate-300 hover:text-sky-400 py-1 font-medium">Education</a>
+            <a href="#contact" onclick="toggleMenu()" class="block text-slate-300 hover:text-sky-400 py-1 font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 relative overflow-hidden">
+        <!-- Background Decorative Glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 text-center md:text-left space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs sm:text-sm font-mono font-medium">
+                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                    2nd Year B.Sc Student & Developer
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                    Hi, I'm <span class="gradient-text">Akshatha</span>
+                </h1>
+                
+                <p class="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
+                    A passionate computer science student exploring problem-solving, structured algorithms, and core application development through <strong class="text-slate-200">C</strong>, <strong class="text-slate-200">C++</strong>, and <strong class="text-slate-200">Java</strong>.
+                </p>
+
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+                    <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 hover:scale-105 transition-all duration-200">
+                        View Projects <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-xl glass-card text-slate-200 hover:bg-slate-800/50 hover:border-slate-600 transition-all font-semibold">
+                        Get In Touch
+                    </a>
+                </div>
+
+                <!-- Social Quick Links -->
+                <div class="flex items-center gap-6 justify-center md:justify-start pt-4 text-slate-400 text-xl">
+                    <a href="https://github.com" target="_blank" class="hover:text-sky-400 transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-sky-400 transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:akshatha@example.com" class="hover:text-sky-400 transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Profile Avatar / Graphic -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl p-1 bg-gradient-to-tr from-sky-500 via-purple-500 to-pink-500 shadow-2xl">
+                    <div class="w-full h-full bg-slate-900 rounded-[22px] flex flex-col items-center justify-center p-6 text-center space-y-4 overflow-hidden relative">
+                        <div class="w-28 h-28 rounded-full bg-slate-800 border-2 border-sky-400/50 flex items-center justify-center shadow-inner">
+                            <i class="fas fa-user-graduate text-5xl text-sky-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-100">Akshatha</h3>
+                            <p class="text-xs text-sky-400 font-mono mt-1">B.Sc Computer Science</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">C</span>
+                            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">C++</span>
+                            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Java</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-slate-900/50 border-t border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-sky-400 font-mono text-sm uppercase tracking-widest font-semibold">Discovery</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">About Me</h2>
+                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-slate-300 leading-relaxed">
+                    <p class="text-lg">
+                        Hello! I am <strong class="text-slate-100">Akshatha</strong>, currently in my <strong class="text-sky-400">2nd year of Bachelor of Science (B.Sc.)</strong> with a deep enthusiasm for computer programming and logic building.
+                    </p>
+                    <p>
+                        My academic journey has given me a solid understanding of fundamental computer concepts, data structures, and object-oriented programming. I love tackling algorithmic challenges, writing clean logic, and building functional applications from scratch.
+                    </p>
+                    <p>
+                        I am actively honing my skills in <span class="text-sky-400 font-medium">C</span>, <span class="text-purple-400 font-medium">C++</span>, and <span class="text-pink-400 font-medium">Java</span> while constantly exploring new domain technologies to broaden my practical skillset.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 font-mono text-sm">
+                        <div class="p-3 rounded-lg glass-card">
+                            <span class="text-sky-400 font-bold block">Degree</span>
+                            <span class="text-slate-300">B.Sc. (2nd Year)</span>
+                        </div>
+                        <div class="p-3 rounded-lg glass-card">
+                            <span class="text-sky-400 font-bold block">Focus Area</span>
+                            <span class="text-slate-300">Software & OOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="glass-card p-6 rounded-2xl space-y-3 border-l-4 border-l-sky-500 hover:translate-y-1 transition-transform">
+                        <i class="fas fa-code text-2xl text-sky-400"></i>
+                        <h3 class="text-lg font-bold text-slate-100">Logic & Coding</h3>
+                        <p class="text-sm text-slate-400">Strengthening core programming paradigms and procedural code in C & C++.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 border-l-4 border-l-purple-500 hover:translate-y-1 transition-transform">
+                        <i class="fas fa-cubes text-2xl text-purple-400"></i>
+                        <h3 class="text-lg font-bold text-slate-100">Object-Oriented</h3>
+                        <p class="text-sm text-slate-400">Designing modular, reusable components using Java and C++ OOP principles.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 border-l-4 border-l-emerald-500 hover:translate-y-1 transition-transform">
+                        <i class="fas fa-brain text-2xl text-emerald-400"></i>
+                        <h3 class="text-lg font-bold text-slate-100">Problem Solving</h3>
+                        <p class="text-sm text-slate-400">Implementing efficient Data Structures and Algorithms for optimized results.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3 border-l-4 border-l-pink-500 hover:translate-y-1 transition-transform">
+                        <i class="fas fa-graduation-cap text-2xl text-pink-400"></i>
+                        <h3 class="text-lg font-bold text-slate-100">Continuous Learner</h3>
+                        <p class="text-sm text-slate-400">Always eager to pick up modern frameworks and practical dev tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-sky-400 font-mono text-sm uppercase tracking-widest font-semibold">Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Technical Skills</h2>
+                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Skill Progress Bars -->
+                <div class="space-y-6 glass-card p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2">
+                        <i class="fas fa-laptop-code text-sky-400"></i> Programming Proficiency
+                    </h3>
+
+                    <!-- C -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-mono text-sm">
+                            <span class="text-slate-200 font-semibold">C Language</span>
+                            <span class="text-sky-400">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                            <div class="skill-progress h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- C++ -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-mono text-sm">
+                            <span class="text-slate-200 font-semibold">C++ & OOPs</span>
+                            <span class="text-purple-400">80%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                            <div class="skill-progress h-full bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Java -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-mono text-sm">
+                            <span class="text-slate-200 font-semibold">Java Programming</span>
+                            <span class="text-pink-400">78%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                            <div class="skill-progress h-full bg-gradient-to-r from-pink-500 to-rose-600 rounded-full" style="width: 78%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Problem Solving & DSA -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-mono text-sm">
+                            <span class="text-slate-200 font-semibold">Data Structures & Logic</span>
+                            <span class="text-emerald-400">75%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                            <div class="skill-progress h-full bg-gradient-to-r from-emerald-400 to-teal-600 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Grid Cards -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center space-y-3 hover:border-sky-500/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-3xl">
+                            <i class="fas fa-c"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100">C Language</h4>
+                        <p class="text-xs text-slate-400">Pointers, Memory Management, File Handling, Structures</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center space-y-3 hover:border-purple-500/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl font-mono font-bold">
+                            C++
+                        </div>
+                        <h4 class="font-bold text-slate-100">C++ Programming</h4>
+                        <p class="text-xs text-slate-400">Classes, Inheritance, Polymorphism, STL Containers</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center space-y-3 hover:border-pink-500/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-3xl">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100">Java Standard</h4>
+                        <p class="text-xs text-slate-400">Multithreading, Exception Handling, Swing GUI, Collections</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center space-y-3 hover:border-emerald-500/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-3xl">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100">Data Structures</h4>
+                        <p class="text-xs text-slate-400">Arrays, Linked Lists, Stacks, Queues, Trees</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900/50 border-t border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-sky-400 font-mono text-sm uppercase tracking-widest font-semibold">Portfolio</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Featured Projects</h2>
+                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-sky-500/40 transition-all group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <span class="px-2.5 py-1 text-xs font-mono rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">C / C++</span>
+                        </div>
+                        <h3 class="text-xl font-bold group-hover:text-sky-400 transition-colors">Library Management System</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A console-based application built using C++ and file streams to keep track of book issuance, returns, and inventory logs efficiently.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">C++</span>
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">File I/O</span>
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">OOPs</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center text-sm font-medium">
+                        <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-sky-400 inline-flex items-center gap-1 transition-colors">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <span class="text-xs text-slate-500 font-mono">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-purple-500/40 transition-all group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <span class="px-2.5 py-1 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Java</span>
+                        </div>
+                        <h3 class="text-xl font-bold group-hover:text-purple-400 transition-colors">Student Grade Calculator GUI</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A Java Swing GUI desktop application calculating marks percentage, grades, and generating printable student record summaries.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Java</span>
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Swing / AWT</span>
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">GUI</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center text-sm font-medium">
+                        <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-purple-400 inline-flex items-center gap-1 transition-colors">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <span class="text-xs text-slate-500 font-mono">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <span class="px-2.5 py-1 text-xs font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">C / Game</span>
+                        </div>
+                        <h3 class="text-xl font-bold group-hover:text-emerald-400 transition-colors">Classic Snake & Tic-Tac-Toe</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Interactive mini-games built in standard C utilizing dynamic arrays and real-time keyboard inputs in terminal view.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">C Programming</span>
+                            <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Algorithms</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between items-center text-sm font-medium">
+                        <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-emerald-400 inline-flex items-center gap-1 transition-colors">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <span class="text-xs text-slate-500 font-mono">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-sky-400 font-mono text-sm uppercase tracking-widest font-semibold">Academic Profile</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Education Journey</h2>
+                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:-ml-0.5 before:w-0.5 before:bg-slate-800">
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-9 h-9 rounded-full bg-sky-500 text-slate-950 font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-lg shadow-sky-500/20">
+                        <i class="fas fa-university text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl hover:border-sky-500/50 transition-all">
+                        <span class="text-sky-400 text-xs font-mono font-semibold">2023 - Present (2nd Year)</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-1">Bachelor of Science (B.Sc.)</h3>
+                        <p class="text-sm text-slate-400 mt-1">Focusing on Computer Science, Mathematics, and Physics/Electronics.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-9 h-9 rounded-full bg-purple-500 text-slate-950 font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-lg shadow-purple-500/20">
+                        <i class="fas fa-school text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl hover:border-purple-500/50 transition-all">
+                        <span class="text-purple-400 text-xs font-mono font-semibold">2021 - 2023</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-1">Pre-University Education (PUC / Higher Secondary)</h3>
+                        <p class="text-sm text-slate-400 mt-1">Completed Science Stream with distinction in Computer Science basics and Mathematics.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-sky-400 font-mono text-sm uppercase tracking-widest font-semibold">Connect</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Get In Touch</h2>
+                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-100">Let's connect & collaborate!</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        I am eager to hear about internship opportunities, student projects, or coding collaborations. Feel free to reach out via email or social platforms!
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Email</span>
+                                <a href="mailto:akshatha@example.com" class="text-sm font-medium text-slate-200 hover:text-sky-400 transition-colors">akshatha@example.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Location</span>
+                                <span class="text-sm font-medium text-slate-200">Karnataka, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-2xl">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 uppercase mb-2">Your Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 uppercase mb-2">Your Email</label>
+                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 uppercase mb-2">Message</label>
+                            <textarea rows="4" required placeholder="Hi Akshatha, I would like to..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 hover:scale-[1.01] transition-all duration-200">
+                            Send Message <i class="fas fa-paper-plane ml-2 text-xs"></i>
+                        </button>
+                    </form>
+
+                    <!-- Custom Message Box Notification -->
+                    <div id="formResponse" class="hidden mt-4 p-4 rounded-xl text-center text-sm font-medium"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800/80 text-center text-slate-500 text-xs font-mono">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© <span id="year"></span> Akshatha. All rights reserved. Designed for B.Sc Portfolio.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Theme Toggle Handler
+        function toggleTheme() {
+            const body = document.getElementById('body');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeIconMobile = document.getElementById('themeIconMobile');
+            
+            body.classList.toggle('light');
+
+            if (body.classList.contains('light')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIconMobile.classList.replace('fa-moon', 'fa-sun');
+                document.documentElement.classList.remove('dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeIconMobile.classList.replace('fa-sun', 'fa-moon');
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Contact Form Handling without alerts
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const responseDiv = document.getElementById('formResponse');
+            
+            responseDiv.className = "mt-4 p-4 rounded-xl text-center text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 block";
+            responseDiv.textContent = "Thank you! Your message has been sent successfully.";
+
+            // Reset form input fields
+            document.getElementById('contactForm').reset();
+
+            setTimeout(() => {
+                responseDiv.className = "hidden";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
